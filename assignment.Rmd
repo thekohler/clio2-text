@@ -1,7 +1,7 @@
 ---
 title: "Text analysis assignment"
-author: "PUT YOUR NAME HERE"
-date: "DATE HERE"
+author: "Michael Kohler"
+date: "4/8/19"
 output: html_document
 ---
 

@@ -17,6 +17,8 @@ docs <- c(dylan = "How many roads must a man walk down, before you'll call him a
   str_to_lower()
 
 tokens(docs)
+
+#note, default is to not throw away punctuation. You've gotta tell it to do it.
 tokens(docs, remove_punct = TRUE, remove_symbols = TRUE)
 tokens(docs, ngrams = 2, remove_punct = TRUE, remove_symbols = TRUE)
 tokens(docs, ngrams = 3, remove_punct = TRUE, remove_symbols = TRUE)
@@ -24,12 +26,12 @@ tokens(docs, ngrams = c(1, 3), skip = 2, remove_punct = TRUE, remove_symbols = T
 
 ats_dfm <- dfm(ats, remove_punct = TRUE, remove_symbols = TRUE)
 ats_dfm
-
+#dumping stopwords
 ats_dfm[1:5, 1:10]
 
 ats_dfm <- dfm(ats, remove_punct = TRUE, remove_symbols = TRUE,
                remove = stopwords("en"))
-
+#dumping words that aren't used very often, like OCR errors
 ats_dfm[1:5, 1:10]
 
 View(ats_dfm[, 1:100])
