@@ -7,7 +7,23 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-library(tidytext)
+library(quanteda)
+library(readtext)
+library(stringr)
+library(WPAnarratives)
+data("wpa_narratives")
+
+wpa <- corpus(wpa_narratives, docid_field = "filename", text_field = "text")
+
+wpa <- dfm(wpa, remove_punct = TRUE, remove_symbols = TRUE)
+wpa
+
+#stopwords
+
+wpa[1:5, 1:10]
+
+wpa <- dfm(wpa, remove_punct = TRUE, remove_symbols = TRUE,
+               remove = stopwords("en"))
+
 ```
 
